@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
     if (argc < 6)
     {
         std::cerr << "Usage:\n"
-                  << "./compress en|de bin|rle|dic|for|dif int8|int16|int32|int64|string input_file_path output_file_path\n";
+                  << "./compression_program en|de bin|rle|dic|for|dif int8|int16|int32|int64|string input_file_path output_file_path\n";
         return 1;
     }
 
