@@ -1,0 +1,69 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <vector>
+#include <stdexcept>
+#include "global.h"
+
+//compile: g++ -o compression_program compression.cpp technique_bin.cpp
+//run compress: ./compression_program en bin int64 ./data/l_discount-int64.csv ./output/l_discount-int64.bin
+//run decompress: ./compression_program de bin int64 ./output/l_discount-int64.bin ./output/l_discount-int64.csv 
+
+int main(int argc, char *argv[])
+{
+    if (argc < 6)
+    {
+        std::cerr << "Usage:\n"
+                  << "./compress en|de bin|rle|dic|for|dif int8|int16|int32|int64|string input_file_path output_file_path\n";
+        return 1;
+    }
+
+    std::string mode = argv[1];
+    std::string technique = argv[2];
+    std::string dataType = argv[3];
+    std::string inputFilePath = argv[4];
+    std::string outputFilePath = argv[5];
+    
+
+    // param check
+    if (mode != "en" && mode != "de")
+    {
+        std::cerr << "Invalid mode.\n";
+        return 1;
+    }
+
+    if (technique != "bin" && technique != "rle" && technique != "dic" && technique != "for" && technique != "dif")
+    {
+        std::cerr << "Invalid compression technique.\n";
+        return 1;
+    }
+
+    if (dataType != "int8" && dataType != "int16" && dataType != "int32" && dataType != "int64" && dataType != "string")
+    {
+        std::cerr << "Invalid data type.\n";
+        return 1;
+    }
+
+    // logic
+    if (mode == "en")
+    {
+        if(technique == "bin")
+        {
+            compress_bin(dataType, inputFilePath, outputFilePath);
+        }
+    }
+    else if (mode == "de")
+    {
+        if(technique == "bin")
+        {
+            decompress_bin(dataType, inputFilePath, outputFilePath);
+        }
+    }
+    else
+    {
+        std::cerr << "Invalid mode.\n";
+        return 1;
+    }
+    
+    return 0;
+}
