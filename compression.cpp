@@ -62,6 +62,7 @@ int main(int argc, char *argv[])
         } else if(technique == "dif")
         {
             compress_dif(dataType, inputFilePath, outputFilePath);
+        }
     }
     else if (mode == "de")
     {
