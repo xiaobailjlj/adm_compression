@@ -81,6 +81,7 @@ int main(int argc, char *argv[])
         }else if(technique == "dif")
         {
             decompress_dif(dataType, inputFilePath, outputFilePath);    
+        }
     }
     else
     {
