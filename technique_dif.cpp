@@ -3,22 +3,22 @@
 #include <iostream>
 #include <vector>
 
-// ./compression_program en for int8 ./data/l_discount-int8.csv ./output/for/l_discount-int8.for
-// ./compression_program en for int16 ./data/l_discount-int16.csv ./output/for/l_discount-int16.for
-// ./compression_program en for int32 ./data/l_discount-int32.csv ./output/for/l_discount-int32.for
-// ./compression_program en for int64 ./data/l_discount-int32.csv ./output/for/l_discount-int64.for
+// ./compression_program en for int8 ./data/l_discount-int8.csv ./output/dif/l_discount-int8d.dif
+// ./compression_program en for int16 ./data/l_discount-int16.csv ./output/dif/l_discount-int16d.dif
+// ./compression_program en for int32 ./data/l_discount-int32.csv ./output/dif/l_discount-int32d.dif
+// ./compression_program en for int64 ./data/l_discount-int32.csv ./output/dif/l_discount-int64d.dif
 
 
 
-// ./compression_program de for int8 ./output/for/l_discount-int8.for ./output/for/l_discount-int8.csv
-// ./compression_program de for int16 ./output/for/l_discount-int16.for ./output/for/l_discount-int16.csv
-// ./compression_program de for int32 ./output/for/l_discount-int32.for ./output/for/l_discount-int32.csv
-// ./compression_program de for int64 ./output/for/l_discount-int32.for ./output/for/l_discount-int32.csv
+// ./compression_program de for int8 ./output/dif/l_discount-int8d.dif ./output/dif/l_discount-int8.csv
+// ./compression_program de for int16 ./output/dif/l_discount-int16d.dif ./output/dif/l_discount-int16.csv
+// ./compression_program de for int32 ./output/dif/l_discount-int32d.dif ./output/dif/l_discount-int32.csv
+// ./compression_program de for int64 ./output/dif/l_discount-int32d.dif ./output/dif/l_discount-int32.csv
 
 
 
-// ./compression_program en for int64 ./data/aa_try.csv ./output/for/aa_try.for
-// ./compression_program de for int8 ./output/for/aa_try.for ./output/for/aa_try.csv
+// ./compression_program en for int64 ./data/aa_try.csv ./output/dif/aa_tryd.dif
+// ./compression_program de for int8 ./output/dif/aa_tryd.dif ./output/dif/aa_try.csv
 
 
 void compress_dif(const std::string& dataTypeOri, const std::string& inputFilePath, const std::string& outputFilePath) {
@@ -33,50 +33,6 @@ void compress_dif(const std::string& dataTypeOri, const std::string& inputFilePa
         throw std::runtime_error("Cannot open output file: " + outputFilePath);
     }
 
-    // adapt dataType, automatically select a smaller integer type for compression
-    int64_t value;
-    int64_t minValue = std::numeric_limits<int8_t>::max();
-    int64_t maxValue = std::numeric_limits<int8_t>::min();
-
-    // take samples and find the vague midian
-    int sampleSize = 20;
-    int count = 0;
-    std::vector<int64_t> sample;
-
-    while (inputFile >> value) {
-        // std::cout << "value:" << value << "\n";
-        if (sample.size() < sampleSize) {
-            sample.push_back(value);
-        } else {
-            int randIndex = std::rand() % (++count);
-            if (randIndex < sampleSize) {
-                sample[randIndex] = value;
-            }
-        }
-        if (value < minValue) minValue = value;
-        if (value > maxValue) maxValue = value;
-    }
-    std::sort(sample.begin(), sample.end());
-    int n = sample.size();
-    int64_t midianValue = (n % 2 == 1) ? sample[n / 2] : floor((sample[n / 2 - 1] + sample[n / 2]) / 2.0);
-    int64_t meanValue = floor((minValue + maxValue)/2);
-    
-    // set and write base value, min or mean or midian(hard to find without sorting, determined by sampling)
-    int64_t baseValue = midianValue;
-    int64_t minSubBase = minValue - baseValue;
-    int64_t maxSubBase = maxValue - baseValue;
-
-    outputFile.write(reinterpret_cast<char*>(&baseValue), sizeof(baseValue));
-
-
-    std::cout << "minValue:" << minValue << "\n";
-    std::cout << "maxValue:" << maxValue << "\n";
-    std::cout << "meanValue:" << meanValue << "\n";
-    std::cout << "midianValue:" << midianValue << "\n";
-    std::cout << "baseValue:" << baseValue << "\n";
-    std::cout << "minSubBase:" << minSubBase << "\n";
-    std::cout << "maxSubBase:" << maxSubBase << "\n";
-
     // determine target bit width(dataType), and calculate the maxmum and minimum sub value, subs exceed this range are exceptions
     uint8_t target_bits = 8;
     std::string dataType = "int8";
@@ -87,49 +43,50 @@ void compress_dif(const std::string& dataTypeOri, const std::string& inputFilePa
     
     // reserve highest positive and lowest negative as escape codes
     int64_t positive_escape = max_positive;
-    int64_t negative_escape = min_negative;
+    // int64_t negative_escape = min_negative;
     
-    // max and min regular values
-    int64_t maxRegularValue = baseValue + max_positive - 1;
-    int64_t minRegularValue = baseValue + min_negative + 1;
-    
-    std::cout << "maxRegularValue:" << maxRegularValue << "\n";
-    std::cout << "minRegularValue:" << minRegularValue << "\n";
+    std::cout << "max_positive:" << max_positive << "\n";
+    std::cout << "min_negative:" << min_negative << "\n";
     std::cout << "dataType:" << dataType << "\n";
     std::cout << "dataTypeInt: " << static_cast<int>(dataTypeInt) << "\n"; 
 
     outputFile.write(reinterpret_cast<char*>(&dataTypeInt), sizeof(dataTypeInt));
 
+    // set the first base value
+    int64_t currentBaseValue;
+    inputFile >> currentBaseValue;
+    outputFile.write(reinterpret_cast<char*>(&currentBaseValue), sizeof(currentBaseValue));
 
-    inputFile.clear();
-    inputFile.seekg(0, std::ios::beg);
-
+    // origin value might be big, use int64_t
+    int64_t valueOut;
+    int64_t valueDiff;
 
     if (dataType == "int8") {
-        // origin value might be big, use int64_t
-        int64_t valueOut;
         int8_t sub;
         while (inputFile >> valueOut) {
-            // std::cout << "ori:" << valueOut << "\n";
-            if ((minRegularValue <= valueOut) && (valueOut <= maxRegularValue) ){
-                sub =  valueOut - baseValue;
-                // std::cout << "sub:" << static_cast<int>(sub) << "\n";
+            valueDiff = valueOut - currentBaseValue;
+            currentBaseValue = valueOut;
+            std::cout << "ori:" << valueOut << "\n";
+            if ((min_negative <= valueDiff) && (valueDiff <= max_positive) ){
+                sub =  valueDiff;
+                std::cout << "sub:" << static_cast<int>(sub) << "\n";
                 outputFile.write(reinterpret_cast<char*>(&sub), sizeof(sub));
             }
             else {
                 sub = positive_escape;
-                // std::cout << "excape \n";
+                std::cout << "excape \n";
                 outputFile.write(reinterpret_cast<char*>(&sub), sizeof(sub));
                 outputFile.write(reinterpret_cast<char*>(&valueOut), sizeof(valueOut));
             }
         }
     } else if (dataType == "int16") {
-        int64_t valueOut;
         int16_t sub;
         while (inputFile >> valueOut) {
+            valueDiff = valueOut - currentBaseValue;
+            currentBaseValue = valueOut;
             // std::cout << "ori:" << valueOut << "\n";
-            if ((minRegularValue <= valueOut) && (valueOut <= maxRegularValue) ){
-                sub =  valueOut - baseValue;
+            if ((min_negative <= valueDiff) && (valueDiff <= max_positive) ){
+                sub =  valueDiff;
                 // std::cout << "sub:" << static_cast<int>(sub) << "\n";
                 outputFile.write(reinterpret_cast<char*>(&sub), sizeof(sub));
             }
@@ -141,12 +98,13 @@ void compress_dif(const std::string& dataTypeOri, const std::string& inputFilePa
             }
         }
     } else if (dataType == "int32") {
-        int64_t valueOut;
         int32_t sub;
         while (inputFile >> valueOut) {
+            valueDiff = valueOut - currentBaseValue;
+            currentBaseValue = valueOut;
             // std::cout << "ori:" << valueOut << "\n";
-            if ((minRegularValue <= valueOut) && (valueOut <= maxRegularValue) ){
-                sub =  valueOut - baseValue;
+            if ((min_negative <= valueDiff) && (valueDiff <= max_positive) ){
+                sub =  valueDiff;
                 // std::cout << "sub:" << static_cast<int>(sub) << "\n";
                 outputFile.write(reinterpret_cast<char*>(&sub), sizeof(sub));
             }
@@ -158,12 +116,13 @@ void compress_dif(const std::string& dataTypeOri, const std::string& inputFilePa
             }
         }
     } else if (dataType == "int64") {
-        int64_t valueOut;
         int64_t sub;
         while (inputFile >> valueOut) {
+            valueDiff = valueOut - currentBaseValue;
+            currentBaseValue = valueOut;
             // std::cout << "ori:" << valueOut << "\n";
-            if ((minRegularValue <= valueOut) && (valueOut <= maxRegularValue) ){
-                sub =  valueOut - baseValue;
+            if ((min_negative <= valueDiff) && (valueDiff <= max_positive) ){
+                sub =  valueDiff;
                 // std::cout << "sub:" << static_cast<int>(sub) << "\n";
                 outputFile.write(reinterpret_cast<char*>(&sub), sizeof(sub));
             }
@@ -194,14 +153,17 @@ void decompress_dif(const std::string& dataTypeOri, const std::string& inputFile
         throw std::runtime_error("Cannot open output file: " + outputFilePath);
     }
 
-    // read base value
-    int64_t baseValue;
-    inputFile.read(reinterpret_cast<char*>(&baseValue), sizeof(baseValue));
-
     // read data type
     int8_t  dataTypeInt = 0;
     std::string dataType;
     inputFile.read(reinterpret_cast<char*>(&dataTypeInt), sizeof(dataTypeInt));
+
+    // read base value
+    int64_t baseValue;
+    inputFile.read(reinterpret_cast<char*>(&baseValue), sizeof(baseValue));
+    outputFile << static_cast<int>(baseValue) << "\n";
+
+
     if (dataTypeInt==1) {
         dataType = "int8";
     } else if (dataTypeInt==2) {
@@ -225,11 +187,13 @@ void decompress_dif(const std::string& dataTypeOri, const std::string& inputFile
             if (value!=max_positive){
                 // can't determine int size after adding base value, set to int64
                 int64_t valueAddBase = value + baseValue;
-                // std::cout << "value:" << static_cast<int>(valueAddBase) << "\n";
+                baseValue = valueAddBase;
+                std::cout << "value:" << static_cast<int>(valueAddBase) << "\n";
                 outputFile << static_cast<int>(valueAddBase) << "\n";
             } else{
                 inputFile.read(reinterpret_cast<char*>(&value_escape), sizeof(value_escape));
-                // std::cout << "value:" << static_cast<int>(value_escape) << "\n";
+                baseValue = value_escape;
+                std::cout << "escape value:" << static_cast<int>(value_escape) << "\n";
                 outputFile << static_cast<int>(value_escape) << "\n";
             }
         }
@@ -243,10 +207,12 @@ void decompress_dif(const std::string& dataTypeOri, const std::string& inputFile
             if (value!=max_positive){
                 // can't determine int size after adding base value, set to int64
                 int64_t valueAddBase = value + baseValue;
+                baseValue = valueAddBase;
                 // std::cout << "value:" << static_cast<int>(valueAddBase) << "\n";
                 outputFile << static_cast<int>(valueAddBase) << "\n";
             } else{
                 inputFile.read(reinterpret_cast<char*>(&value_escape), sizeof(value_escape));
+                baseValue = value_escape;
                 // std::cout << "value:" << static_cast<int>(value_escape) << "\n";
                 outputFile << static_cast<int>(value_escape) << "\n";
             }
@@ -261,10 +227,12 @@ void decompress_dif(const std::string& dataTypeOri, const std::string& inputFile
             if (value!=max_positive){
                 // can't determine int size after adding base value, set to int64
                 int64_t valueAddBase = value + baseValue;
+                baseValue = valueAddBase;
                 // std::cout << "value:" << static_cast<int>(valueAddBase) << "\n";
                 outputFile << static_cast<int>(valueAddBase) << "\n";
             } else{
                 inputFile.read(reinterpret_cast<char*>(&value_escape), sizeof(value_escape));
+                baseValue = value_escape;
                 // std::cout << "value:" << static_cast<int>(value_escape) << "\n";
                 outputFile << static_cast<int>(value_escape) << "\n";
             }
@@ -279,10 +247,12 @@ void decompress_dif(const std::string& dataTypeOri, const std::string& inputFile
             if (value!=max_positive){
                 // can't determine int size after adding base value, set to int64
                 int64_t valueAddBase = value + baseValue;
+                baseValue = valueAddBase;
                 // std::cout << "value:" << static_cast<int>(valueAddBase) << "\n";
                 outputFile << static_cast<int>(valueAddBase) << "\n";
             } else{
                 inputFile.read(reinterpret_cast<char*>(&value_escape), sizeof(value_escape));
+                baseValue = value_escape;
                 // std::cout << "value:" << static_cast<int>(value_escape) << "\n";
                 outputFile << static_cast<int>(value_escape) << "\n";
             }

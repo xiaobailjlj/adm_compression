@@ -33,7 +33,6 @@ void compress_for(const std::string& dataTypeOri, const std::string& inputFilePa
         throw std::runtime_error("Cannot open output file: " + outputFilePath);
     }
 
-    // adapt dataType, automatically select a smaller integer type for compression
     int64_t value;
     int64_t minValue = std::numeric_limits<int8_t>::max();
     int64_t maxValue = std::numeric_limits<int8_t>::min();
