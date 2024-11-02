@@ -2,6 +2,26 @@
 #include <fstream>
 #include <iostream>
 
+
+// ./compression_program en bin int8 ./data/l_discount-int8.csv ./output/l_discount-int8.bin
+// ./compression_program en bin int16 ./data/l_discount-int16.csv ./output/l_discount-int16.bin
+// ./compression_program en bin int32 ./data/l_discount-int32.csv ./output/l_discount-int32.bin
+// ./compression_program en bin int64 ./data/l_discount-int32.csv ./output/l_discount-int64.bin
+
+
+
+// ./compression_program de bin int8 ./output/l_discount-int8.bin ./output/l_discount-int8.csv
+// ./compression_program de bin int16 ./output/l_discount-int16.bin ./output/l_discount-int16.csv
+// ./compression_program de bin int32 ./output/l_discount-int32.bin ./output/l_discount-int32.csv
+// ./compression_program de bin int64 ./output/l_discount-int32.bin ./output/l_discount-int32.csv
+
+
+
+// ./compression_program en bin int64 ./data/aa_try.csv ./output/aa_try.bin
+// ./compression_program de bin int8 ./output/aa_try.bin ./output/aa_try.csv
+
+
+
 void compress_bin(const std::string& dataTypeOri, const std::string& inputFilePath, const std::string& outputFilePath) {
     std::ifstream inputFile(inputFilePath);
     std::ofstream outputFile(outputFilePath, std::ios::binary);
@@ -19,7 +39,7 @@ void compress_bin(const std::string& dataTypeOri, const std::string& inputFilePa
     int64_t maxValue = std::numeric_limits<int8_t>::min();
 
     while (inputFile >> value) {
-        std::cout << "value:" << value << "\n";
+        // std::cout << "value:" << value << "\n";
         if (value < minValue) minValue = value;
         if (value > maxValue) maxValue = value;
     }
@@ -55,27 +75,27 @@ void compress_bin(const std::string& dataTypeOri, const std::string& inputFilePa
         // !!! To ensure correct reading for all integer types, use a larger integer type (like int16_t) for reading, and then cast it down to int8_t if necessary
         int temp;
         while (inputFile >> temp) {
-            std::cout << "valueOut temp:" << temp << "\n";
+            // std::cout << "valueOut temp:" << temp << "\n";
             int8_t valueOut = temp;
-            std::cout << "valueOut:" << static_cast<int>(valueOut) << "\n";
+            // std::cout << "valueOut:" << static_cast<int>(valueOut) << "\n";
             outputFile.write(reinterpret_cast<char*>(&valueOut), sizeof(valueOut));
         }
     } else if (dataType == "int16") {
         int16_t valueOut;
         while (inputFile >> valueOut) {
-            std::cout << "valueOut:" << valueOut << "\n";
+            // std::cout << "valueOut:" << valueOut << "\n";
             outputFile.write(reinterpret_cast<char*>(&valueOut), sizeof(valueOut));
         }
     } else if (dataType == "int32") {
         int32_t valueOut;
         while (inputFile >> valueOut) {
-            std::cout << "valueOut:" << valueOut << "\n";
+            // std::cout << "valueOut:" << valueOut << "\n";
             outputFile.write(reinterpret_cast<char*>(&valueOut), sizeof(valueOut));
         }
     } else if (dataType == "int64") {
         int64_t valueOut;
         while (inputFile >> valueOut) {
-            std::cout << "valueOut:" << valueOut << "\n";
+            // std::cout << "valueOut:" << valueOut << "\n";
             outputFile.write(reinterpret_cast<char*>(&valueOut), sizeof(valueOut));
         }
     } else {
@@ -116,7 +136,7 @@ void decompress_bin(const std::string& dataTypeOri, const std::string& inputFile
     if (dataType == "int8") {
         int8_t value;
         while (inputFile.read(reinterpret_cast<char*>(&value), sizeof(value))) {
-            std::cout << "value:" << static_cast<int>(value) << "\n";
+            // std::cout << "value:" << static_cast<int>(value) << "\n";
             outputFile << static_cast<int>(value) << "\n";
         }
     } else if (dataType == "int16") {
