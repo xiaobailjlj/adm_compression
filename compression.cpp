@@ -5,7 +5,7 @@
 #include <stdexcept>
 #include "global.h"
 
-//compile: g++ -o compression_program compression.cpp technique_bin.cpp
+//compile: g++ -o compression_program compression.cpp technique_bin.cpp technique_dic.cpp technique_dif.cpp technique_for.cpp technique_rle.cpp
 //run compress: ./compression_program en bin int64 ./data/l_discount-int64.csv ./output/l_discount-int64.bin
 //run decompress: ./compression_program de bin int64 ./output/l_discount-int64.bin ./output/l_discount-int64.csv 
 
@@ -50,14 +50,46 @@ int main(int argc, char *argv[])
         if(technique == "bin")
         {
             compress_bin(dataType, inputFilePath, outputFilePath);
-        }
+        } 
+        // else if(technique == "rle")
+        // {
+        //     compress_rle(dataType, inputFilePath, outputFilePath);
+        // } 
+        // else if(technique == "dic")
+        // {
+        //     compress_dic(dataType, inputFilePath, outputFilePath);
+        // } 
+        // else if(technique == "for")
+        // {
+        //     compress_for(dataType, inputFilePath, outputFilePath);
+        // } 
+        // else if(technique == "dif")
+        // {
+        //     compress_dif(dataType, inputFilePath, outputFilePath);
+        // }
     }
     else if (mode == "de")
     {
         if(technique == "bin")
         {
             decompress_bin(dataType, inputFilePath, outputFilePath);
-        }
+        } 
+        // else if(technique == "rle")        
+        // {
+        //     decompress_rle(dataType, inputFilePath, outputFilePath);
+        // } 
+        // else if(technique == "dic")
+        // {
+        //     decompress_dic(dataType, inputFilePath, outputFilePath);
+        // } 
+        // else if(technique == "for")
+        // {
+        //     decompress_for(dataType, inputFilePath, outputFilePath);
+        // } 
+        // else if(technique == "dif")
+        // {
+        //     decompress_dif(dataType, inputFilePath, outputFilePath);
+        // }
     }
     else
     {
