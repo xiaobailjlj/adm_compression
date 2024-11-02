@@ -3,22 +3,22 @@
 #include <iostream>
 
 
-// ./compression_program en bin int8 ./data/l_discount-int8.csv ./output/l_discount-int8.bin
-// ./compression_program en bin int16 ./data/l_discount-int16.csv ./output/l_discount-int16.bin
-// ./compression_program en bin int32 ./data/l_discount-int32.csv ./output/l_discount-int32.bin
-// ./compression_program en bin int64 ./data/l_discount-int32.csv ./output/l_discount-int64.bin
+// ./compression_program en bin int8 ./data/l_discount-int8.csv ./output/bin/l_discount-int8.bin
+// ./compression_program en bin int16 ./data/l_discount-int16.csv ./output/bin/l_discount-int16.bin
+// ./compression_program en bin int32 ./data/l_discount-int32.csv ./output/bin/l_discount-int32.bin
+// ./compression_program en bin int64 ./data/l_discount-int32.csv ./output/bin/l_discount-int64.bin
 
 
 
-// ./compression_program de bin int8 ./output/l_discount-int8.bin ./output/l_discount-int8.csv
-// ./compression_program de bin int16 ./output/l_discount-int16.bin ./output/l_discount-int16.csv
-// ./compression_program de bin int32 ./output/l_discount-int32.bin ./output/l_discount-int32.csv
-// ./compression_program de bin int64 ./output/l_discount-int32.bin ./output/l_discount-int32.csv
+// ./compression_program de bin int8 ./output/bin/l_discount-int8.bin ./output/bin/l_discount-int8.csv
+// ./compression_program de bin int16 ./output/bin/l_discount-int16.bin ./output/bin/l_discount-int16.csv
+// ./compression_program de bin int32 ./output/bin/l_discount-int32.bin ./output/bin/l_discount-int32.csv
+// ./compression_program de bin int64 ./output/bin/l_discount-int32.bin ./output/bin/l_discount-int32.csv
 
 
 
-// ./compression_program en bin int64 ./data/aa_try.csv ./output/aa_try.bin
-// ./compression_program de bin int8 ./output/aa_try.bin ./output/aa_try.csv
+// ./compression_program en bin int64 ./data/aa_try.csv ./output/bin/aa_try.bin
+// ./compression_program de bin int8 ./output/bin/aa_try.bin ./output/bin/aa_try.csv
 
 
 
