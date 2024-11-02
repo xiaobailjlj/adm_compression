@@ -66,15 +66,15 @@ void compress_dif(const std::string& dataTypeOri, const std::string& inputFilePa
         while (inputFile >> valueOut) {
             valueDiff = valueOut - currentBaseValue;
             currentBaseValue = valueOut;
-            std::cout << "ori:" << valueOut << "\n";
+            // std::cout << "ori:" << valueOut << "\n";
             if ((min_negative <= valueDiff) && (valueDiff <= max_positive) ){
                 sub =  valueDiff;
-                std::cout << "sub:" << static_cast<int>(sub) << "\n";
+                // std::cout << "sub:" << static_cast<int>(sub) << "\n";
                 outputFile.write(reinterpret_cast<char*>(&sub), sizeof(sub));
             }
             else {
                 sub = positive_escape;
-                std::cout << "excape \n";
+                // std::cout << "excape \n";
                 outputFile.write(reinterpret_cast<char*>(&sub), sizeof(sub));
                 outputFile.write(reinterpret_cast<char*>(&valueOut), sizeof(valueOut));
             }
@@ -188,12 +188,12 @@ void decompress_dif(const std::string& dataTypeOri, const std::string& inputFile
                 // can't determine int size after adding base value, set to int64
                 int64_t valueAddBase = value + baseValue;
                 baseValue = valueAddBase;
-                std::cout << "value:" << static_cast<int>(valueAddBase) << "\n";
+                // std::cout << "value:" << static_cast<int>(valueAddBase) << "\n";
                 outputFile << static_cast<int>(valueAddBase) << "\n";
             } else{
                 inputFile.read(reinterpret_cast<char*>(&value_escape), sizeof(value_escape));
                 baseValue = value_escape;
-                std::cout << "escape value:" << static_cast<int>(value_escape) << "\n";
+                // std::cout << "escape value:" << static_cast<int>(value_escape) << "\n";
                 outputFile << static_cast<int>(value_escape) << "\n";
             }
         }
