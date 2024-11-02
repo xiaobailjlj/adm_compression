@@ -59,10 +59,10 @@ int main(int argc, char *argv[])
         // {
         //     compress_dic(dataType, inputFilePath, outputFilePath);
         // } 
-        // else if(technique == "for")
-        // {
-        //     compress_for(dataType, inputFilePath, outputFilePath);
-        // } 
+        else if(technique == "for")
+        {
+            compress_for(dataType, inputFilePath, outputFilePath);
+        } 
         // else if(technique == "dif")
         // {
         //     compress_dif(dataType, inputFilePath, outputFilePath);
@@ -82,10 +82,10 @@ int main(int argc, char *argv[])
         // {
         //     decompress_dic(dataType, inputFilePath, outputFilePath);
         // } 
-        // else if(technique == "for")
-        // {
-        //     decompress_for(dataType, inputFilePath, outputFilePath);
-        // } 
+        else if(technique == "for")
+        {
+            decompress_for(dataType, inputFilePath, outputFilePath);
+        } 
         // else if(technique == "dif")
         // {
         //     decompress_dif(dataType, inputFilePath, outputFilePath);

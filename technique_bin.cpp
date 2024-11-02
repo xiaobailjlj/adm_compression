@@ -55,7 +55,7 @@ void decompress_bin(const std::string& dataType, const std::string& inputFilePat
     if (dataType == "int8") {
         int8_t value;
         while (inputFile.read(reinterpret_cast<char*>(&value), sizeof(value))) {
-            outputFile << static_cast<int>(value) << "\n";  // Cast to int for readable output
+            outputFile << value << "\n";
         }
     } else if (dataType == "int16") {
         int16_t value;
