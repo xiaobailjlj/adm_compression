@@ -3,6 +3,24 @@
 #include <iostream>
 #include <vector>
 
+// ./compression_program en for int8 ./data/l_discount-int8.csv ./output/for/l_discount-int8.for
+// ./compression_program en for int16 ./data/l_discount-int16.csv ./output/for/l_discount-int16.for
+// ./compression_program en for int32 ./data/l_discount-int32.csv ./output/for/l_discount-int32.for
+// ./compression_program en for int64 ./data/l_discount-int32.csv ./output/for/l_discount-int64.for
+
+
+
+// ./compression_program de for int8 ./output/for/l_discount-int8.for ./output/for/l_discount-int8.csv
+// ./compression_program de for int16 ./output/for/l_discount-int16.for ./output/for/l_discount-int16.csv
+// ./compression_program de for int32 ./output/for/l_discount-int32.for ./output/for/l_discount-int32.csv
+// ./compression_program de for int64 ./output/for/l_discount-int32.for ./output/for/l_discount-int32.csv
+
+
+
+// ./compression_program en for int64 ./data/aa_try.csv ./output/for/aa_try.for
+// ./compression_program de for int8 ./output/for/aa_try.for ./output/for/aa_try.csv
+
+
 void compress_for(const std::string& dataTypeOri, const std::string& inputFilePath, const std::string& outputFilePath) {
     std::cout << "Start compression. \n";
     std::ifstream inputFile(inputFilePath);
@@ -69,7 +87,7 @@ void compress_for(const std::string& dataTypeOri, const std::string& inputFilePa
     
     // reserve highest positive and lowest negative as escape codes
     int64_t positive_escape = max_positive;
-    int64_t negative_escape = min_negative;
+    // int64_t negative_escape = min_negative;
     
     // max and min regular values
     int64_t maxRegularValue = baseValue + max_positive - 1;

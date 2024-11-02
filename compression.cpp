@@ -86,10 +86,10 @@ int main(int argc, char *argv[])
         {
             decompress_for(dataType, inputFilePath, outputFilePath);
         } 
-        // else if(technique == "dif")
-        // {
-        //     decompress_dif(dataType, inputFilePath, outputFilePath);
-        // }
+        else if(technique == "dif")
+        {
+            decompress_dif(dataType, inputFilePath, outputFilePath);
+        }
     }
     else
     {
