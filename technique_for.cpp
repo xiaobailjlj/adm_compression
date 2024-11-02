@@ -4,6 +4,7 @@
 #include <vector>
 
 void compress_for(const std::string& dataTypeOri, const std::string& inputFilePath, const std::string& outputFilePath) {
+    std::cout << "Start compression. \n";
     std::ifstream inputFile(inputFilePath);
     std::ofstream outputFile(outputFilePath, std::ios::binary);
 
@@ -25,7 +26,7 @@ void compress_for(const std::string& dataTypeOri, const std::string& inputFilePa
     std::vector<int64_t> sample;
 
     while (inputFile >> value) {
-        std::cout << "value:" << value << "\n";
+        // std::cout << "value:" << value << "\n";
         if (sample.size() < sampleSize) {
             sample.push_back(value);
         } else {
@@ -58,66 +59,102 @@ void compress_for(const std::string& dataTypeOri, const std::string& inputFilePa
     std::cout << "minSubBase:" << minSubBase << "\n";
     std::cout << "maxSubBase:" << maxSubBase << "\n";
 
+    // determine target bit width(dataType), and calculate the maxmum and minimum sub value, subs exceed this range are exceptions
+    uint8_t target_bits = 8;
+    std::string dataType = "int8";
+    int8_t  dataTypeInt = 1;
+    
+    int64_t max_positive = (1 << (target_bits - 1)) - 1;  // For 4 bits: 7
+    int64_t min_negative = -(1 << (target_bits - 1));     // For 4 bits: -8
+    
+    // reserve highest positive and lowest negative as escape codes
+    int64_t positive_escape = max_positive;
+    int64_t negative_escape = min_negative;
+    
+    // max and min regular values
+    int64_t maxRegularValue = baseValue + max_positive - 1;
+    int64_t minRegularValue = baseValue + min_negative + 1;
+    
+    std::cout << "maxRegularValue:" << maxRegularValue << "\n";
+    std::cout << "minRegularValue:" << minRegularValue << "\n";
+    std::cout << "dataType:" << dataType << "\n";
+    std::cout << "dataTypeInt: " << static_cast<int>(dataTypeInt) << "\n"; 
+
+    outputFile.write(reinterpret_cast<char*>(&dataTypeInt), sizeof(dataTypeInt));
+
 
     inputFile.clear();
     inputFile.seekg(0, std::ios::beg);
-
-    // determain and mark actual dataType
-    std::string dataType;
-    int8_t  dataTypeInt = 0;
-    if (minSubBase >= std::numeric_limits<int8_t>::min() && maxSubBase <= std::numeric_limits<int8_t>::max()) {
-        dataType = "int8";
-        dataTypeInt = 1;
-        outputFile.write(reinterpret_cast<char*>(&dataTypeInt), sizeof(dataTypeInt));
-    } else if (minSubBase >= std::numeric_limits<int16_t>::min() && maxSubBase <= std::numeric_limits<int16_t>::max()) {
-        dataType = "int16";
-        dataTypeInt = 2;
-        outputFile.write(reinterpret_cast<char*>(&dataTypeInt), sizeof(dataTypeInt));
-    } else if (minSubBase >= std::numeric_limits<int32_t>::min() && maxSubBase <= std::numeric_limits<int32_t>::max()) {
-        dataType = "int32";
-        dataTypeInt = 3;
-        outputFile.write(reinterpret_cast<char*>(&dataTypeInt), sizeof(dataTypeInt));
-    } else if (minSubBase >= std::numeric_limits<int64_t>::min() && maxSubBase <= std::numeric_limits<int64_t>::max()) {
-        dataType = "int64";
-        dataTypeInt = 4;
-        outputFile.write(reinterpret_cast<char*>(&dataTypeInt), sizeof(dataTypeInt));
-    }
-    std::cout << "dataType:" << dataType << "\n";
-    std::cout << "dataTypeInt: " << static_cast<int>(dataTypeInt) << "\n"; 
 
 
     if (dataType == "int8") {
         // origin value might be big, use int64_t
         int64_t valueOut;
+        int8_t sub;
         while (inputFile >> valueOut) {
-            std::cout << "ori:" << valueOut << "\n";
-            int8_t sub =  valueOut - baseValue;
-            std::cout << "sub:" << sub << "\n";
-            outputFile.write(reinterpret_cast<char*>(&sub), sizeof(sub));
+            // std::cout << "ori:" << valueOut << "\n";
+            if ((minRegularValue <= valueOut) && (valueOut <= maxRegularValue) ){
+                sub =  valueOut - baseValue;
+                // std::cout << "sub:" << static_cast<int>(sub) << "\n";
+                outputFile.write(reinterpret_cast<char*>(&sub), sizeof(sub));
+            }
+            else {
+                sub = positive_escape;
+                // std::cout << "excape \n";
+                outputFile.write(reinterpret_cast<char*>(&sub), sizeof(sub));
+                outputFile.write(reinterpret_cast<char*>(&valueOut), sizeof(valueOut));
+            }
         }
     } else if (dataType == "int16") {
         int64_t valueOut;
+        int16_t sub;
         while (inputFile >> valueOut) {
-            std::cout << "ori:" << valueOut << "\n";
-            int16_t sub =  valueOut - baseValue;
-            std::cout << "sub:" << sub << "\n";
-            outputFile.write(reinterpret_cast<char*>(&sub), sizeof(sub));
+            // std::cout << "ori:" << valueOut << "\n";
+            if ((minRegularValue <= valueOut) && (valueOut <= maxRegularValue) ){
+                sub =  valueOut - baseValue;
+                // std::cout << "sub:" << static_cast<int>(sub) << "\n";
+                outputFile.write(reinterpret_cast<char*>(&sub), sizeof(sub));
+            }
+            else {
+                sub = positive_escape;
+                // std::cout << "excape \n";
+                outputFile.write(reinterpret_cast<char*>(&sub), sizeof(sub));
+                outputFile.write(reinterpret_cast<char*>(&valueOut), sizeof(valueOut));
+            }
         }
     } else if (dataType == "int32") {
         int64_t valueOut;
+        int32_t sub;
         while (inputFile >> valueOut) {
-            std::cout << "ori:" << valueOut << "\n";
-            int32_t sub =  valueOut - baseValue;
-            std::cout << "sub:" << sub << "\n";
-            outputFile.write(reinterpret_cast<char*>(&sub), sizeof(sub));
+            // std::cout << "ori:" << valueOut << "\n";
+            if ((minRegularValue <= valueOut) && (valueOut <= maxRegularValue) ){
+                sub =  valueOut - baseValue;
+                // std::cout << "sub:" << static_cast<int>(sub) << "\n";
+                outputFile.write(reinterpret_cast<char*>(&sub), sizeof(sub));
+            }
+            else {
+                sub = positive_escape;
+                // std::cout << "excape \n";
+                outputFile.write(reinterpret_cast<char*>(&sub), sizeof(sub));
+                outputFile.write(reinterpret_cast<char*>(&valueOut), sizeof(valueOut));
+            }
         }
     } else if (dataType == "int64") {
         int64_t valueOut;
+        int64_t sub;
         while (inputFile >> valueOut) {
-            std::cout << "ori:" << valueOut << "\n";
-            int64_t sub =  valueOut - baseValue;
-            std::cout << "sub:" << sub << "\n";
-            outputFile.write(reinterpret_cast<char*>(&sub), sizeof(sub));
+            // std::cout << "ori:" << valueOut << "\n";
+            if ((minRegularValue <= valueOut) && (valueOut <= maxRegularValue) ){
+                sub =  valueOut - baseValue;
+                // std::cout << "sub:" << static_cast<int>(sub) << "\n";
+                outputFile.write(reinterpret_cast<char*>(&sub), sizeof(sub));
+            }
+            else {
+                sub = positive_escape;
+                // std::cout << "excape \n";
+                outputFile.write(reinterpret_cast<char*>(&sub), sizeof(sub));
+                outputFile.write(reinterpret_cast<char*>(&valueOut), sizeof(valueOut));
+            }
         }
     } else {
         throw std::invalid_argument("Unsupported DataType");
@@ -128,6 +165,7 @@ void compress_for(const std::string& dataTypeOri, const std::string& inputFilePa
 }
 
 void decompress_for(const std::string& dataTypeOri, const std::string& inputFilePath, const std::string& outputFilePath) {
+    std::cout << "Start decompression. \n";
     std::ifstream inputFile(inputFilePath, std::ios::binary);
     std::ofstream outputFile(outputFilePath);
 
@@ -161,33 +199,75 @@ void decompress_for(const std::string& dataTypeOri, const std::string& inputFile
 
     if (dataType == "int8") {
         int8_t value;
+        int64_t value_escape;
         while (inputFile.read(reinterpret_cast<char*>(&value), sizeof(value))) {
-            std::cout << "value:" << static_cast<int>(value) << "\n";
-            // can't tell int size after adding base value, set to int64
-            int64_t valueAddBase = value + baseValue;
-            std::cout << "value:" << static_cast<int>(valueAddBase) << "\n";
-            outputFile << static_cast<int>(valueAddBase) << "\n";
+            // std::cout << "value:" << static_cast<int>(value) << "\n";
+            uint8_t target_bits = 8;
+            int8_t max_positive = (1 << (target_bits - 1)) - 1;
+            if (value!=max_positive){
+                // can't determine int size after adding base value, set to int64
+                int64_t valueAddBase = value + baseValue;
+                // std::cout << "value:" << static_cast<int>(valueAddBase) << "\n";
+                outputFile << static_cast<int>(valueAddBase) << "\n";
+            } else{
+                inputFile.read(reinterpret_cast<char*>(&value_escape), sizeof(value_escape));
+                // std::cout << "value:" << static_cast<int>(value_escape) << "\n";
+                outputFile << static_cast<int>(value_escape) << "\n";
+            }
         }
     } else if (dataType == "int16") {
         int16_t value;
+        int64_t value_escape;
         while (inputFile.read(reinterpret_cast<char*>(&value), sizeof(value))) {
-            int64_t valueAddBase = value + baseValue;
-            std::cout << "value:" << static_cast<int>(valueAddBase) << "\n";
-            outputFile << static_cast<int>(valueAddBase) << "\n";
+            // std::cout << "value:" << static_cast<int>(value) << "\n";
+            uint8_t target_bits = 16;
+            int8_t max_positive = (1 << (target_bits - 1)) - 1;
+            if (value!=max_positive){
+                // can't determine int size after adding base value, set to int64
+                int64_t valueAddBase = value + baseValue;
+                // std::cout << "value:" << static_cast<int>(valueAddBase) << "\n";
+                outputFile << static_cast<int>(valueAddBase) << "\n";
+            } else{
+                inputFile.read(reinterpret_cast<char*>(&value_escape), sizeof(value_escape));
+                // std::cout << "value:" << static_cast<int>(value_escape) << "\n";
+                outputFile << static_cast<int>(value_escape) << "\n";
+            }
         }
     } else if (dataType == "int32") {
         int32_t value;
+        int64_t value_escape;
         while (inputFile.read(reinterpret_cast<char*>(&value), sizeof(value))) {
-            int64_t valueAddBase = value + baseValue;
-            std::cout << "value:" << static_cast<int>(valueAddBase) << "\n";
-            outputFile << static_cast<int>(valueAddBase) << "\n";
+            // std::cout << "value:" << static_cast<int>(value) << "\n";
+            uint8_t target_bits = 32;
+            int8_t max_positive = (1 << (target_bits - 1)) - 1;
+            if (value!=max_positive){
+                // can't determine int size after adding base value, set to int64
+                int64_t valueAddBase = value + baseValue;
+                // std::cout << "value:" << static_cast<int>(valueAddBase) << "\n";
+                outputFile << static_cast<int>(valueAddBase) << "\n";
+            } else{
+                inputFile.read(reinterpret_cast<char*>(&value_escape), sizeof(value_escape));
+                // std::cout << "value:" << static_cast<int>(value_escape) << "\n";
+                outputFile << static_cast<int>(value_escape) << "\n";
+            }
         }
     } else if (dataType == "int64") {
         int64_t value;
+        int64_t value_escape;
         while (inputFile.read(reinterpret_cast<char*>(&value), sizeof(value))) {
-            int64_t valueAddBase = value + baseValue;
-            std::cout << "value:" << static_cast<int>(valueAddBase) << "\n";
-            outputFile << static_cast<int>(valueAddBase) << "\n";
+            // std::cout << "value:" << static_cast<int>(value) << "\n";
+            uint8_t target_bits = 64;
+            int8_t max_positive = (1 << (target_bits - 1)) - 1;
+            if (value!=max_positive){
+                // can't determine int size after adding base value, set to int64
+                int64_t valueAddBase = value + baseValue;
+                // std::cout << "value:" << static_cast<int>(valueAddBase) << "\n";
+                outputFile << static_cast<int>(valueAddBase) << "\n";
+            } else{
+                inputFile.read(reinterpret_cast<char*>(&value_escape), sizeof(value_escape));
+                // std::cout << "value:" << static_cast<int>(value_escape) << "\n";
+                outputFile << static_cast<int>(value_escape) << "\n";
+            }
         }
     } else {
         throw std::invalid_argument("Unsupported DataType");
