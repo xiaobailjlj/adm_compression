@@ -1,0 +1,50 @@
+dataType:int8
+Execution time for: de, bin, int16, ./output/bin/l_discount-int16.bin, ./output/bin/l_discount-int16.csvis: 0.482457 seconds
+dataType:int8
+Execution time for: de, bin, int32, ./output/bin/l_discount-int32.bin, ./output/bin/l_discount-int32.csvis: 0.492555 seconds
+dataType:int8
+Execution time for: de, bin, int64, ./output/bin/l_discount-int64.bin, ./output/bin/l_discount-int64.csvis: 0.529216 seconds
+dataType:int8
+Execution time for: de, bin, int8, ./output/bin/l_discount-int8.bin, ./output/bin/l_discount-int8.csvis: 0.49781 seconds
+dataType:int32
+Execution time for: de, bin, int32, ./output/bin/l_extendedprice-int32.bin, ./output/bin/l_extendedprice-int32.csvis: 0.603549 seconds
+dataType:int32
+Execution time for: de, bin, int64, ./output/bin/l_extendedprice-int64.bin, ./output/bin/l_extendedprice-int64.csvis: 0.62809 seconds
+dataType:int8
+Execution time for: de, bin, int16, ./output/bin/l_linenumber-int16.bin, ./output/bin/l_linenumber-int16.csvis: 0.493638 seconds
+dataType:int8
+Execution time for: de, bin, int32, ./output/bin/l_linenumber-int32.bin, ./output/bin/l_linenumber-int32.csvis: 0.493686 seconds
+dataType:int8
+Execution time for: de, bin, int64, ./output/bin/l_linenumber-int64.bin, ./output/bin/l_linenumber-int64.csvis: 0.49372 seconds
+dataType:int8
+Execution time for: de, bin, int8, ./output/bin/l_linenumber-int8.bin, ./output/bin/l_linenumber-int8.csvis: 0.501608 seconds
+dataType:int32
+Execution time for: de, bin, int32, ./output/bin/l_orderkey-int32.bin, ./output/bin/l_orderkey-int32.csvis: 0.607473 seconds
+dataType:int32
+Execution time for: de, bin, int64, ./output/bin/l_orderkey-int64.bin, ./output/bin/l_orderkey-int64.csvis: 0.620551 seconds
+dataType:int32
+Execution time for: de, bin, int32, ./output/bin/l_partkey-int32.bin, ./output/bin/l_partkey-int32.csvis: 0.629111 seconds
+dataType:int32
+Execution time for: de, bin, int64, ./output/bin/l_partkey-int64.bin, ./output/bin/l_partkey-int64.csvis: 0.625216 seconds
+dataType:int8
+Execution time for: de, bin, int16, ./output/bin/l_quantity-int16.bin, ./output/bin/l_quantity-int16.csvis: 0.523826 seconds
+dataType:int8
+Execution time for: de, bin, int32, ./output/bin/l_quantity-int32.bin, ./output/bin/l_quantity-int32.csvis: 0.525906 seconds
+dataType:int8
+Execution time for: de, bin, int64, ./output/bin/l_quantity-int64.bin, ./output/bin/l_quantity-int64.csvis: 0.523216 seconds
+dataType:int8
+Execution time for: de, bin, int8, ./output/bin/l_quantity-int8.bin, ./output/bin/l_quantity-int8.csvis: 0.530802 seconds
+dataType:int16
+Execution time for: de, bin, int16, ./output/bin/l_suppkey-int16.bin, ./output/bin/l_suppkey-int16.csvis: 0.597896 seconds
+dataType:int16
+Execution time for: de, bin, int32, ./output/bin/l_suppkey-int32.bin, ./output/bin/l_suppkey-int32.csvis: 0.556125 seconds
+dataType:int16
+Execution time for: de, bin, int64, ./output/bin/l_suppkey-int64.bin, ./output/bin/l_suppkey-int64.csvis: 0.554163 seconds
+dataType:int8
+Execution time for: de, bin, int16, ./output/bin/l_tax-int16.bin, ./output/bin/l_tax-int16.csvis: 0.499536 seconds
+dataType:int8
+Execution time for: de, bin, int32, ./output/bin/l_tax-int32.bin, ./output/bin/l_tax-int32.csvis: 0.488061 seconds
+dataType:int8
+Execution time for: de, bin, int64, ./output/bin/l_tax-int64.bin, ./output/bin/l_tax-int64.csvis: 0.494943 seconds
+dataType:int8
+Execution time for: de, bin, int8, ./output/bin/l_tax-int8.bin, ./output/bin/l_tax-int8.csvis: 0.500136 seconds

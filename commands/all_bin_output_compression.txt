@@ -1,0 +1,75 @@
+dataType:int8
+dataTypeInt: 1
+Execution time for: en, bin, int16, ./data/l_discount-int16.csv, ./output/bin/l_discount-int16.binis: 0.866661 seconds
+dataType:int8
+dataTypeInt: 1
+Execution time for: en, bin, int32, ./data/l_discount-int32.csv, ./output/bin/l_discount-int32.binis: 0.855188 seconds
+dataType:int8
+dataTypeInt: 1
+Execution time for: en, bin, int64, ./data/l_discount-int64.csv, ./output/bin/l_discount-int64.binis: 0.852528 seconds
+dataType:int8
+dataTypeInt: 1
+Execution time for: en, bin, int8, ./data/l_discount-int8.csv, ./output/bin/l_discount-int8.binis: 0.893513 seconds
+dataType:int32
+dataTypeInt: 3
+Execution time for: en, bin, int32, ./data/l_extendedprice-int32.csv, ./output/bin/l_extendedprice-int32.binis: 1.67268 seconds
+dataType:int32
+dataTypeInt: 3
+Execution time for: en, bin, int64, ./data/l_extendedprice-int64.csv, ./output/bin/l_extendedprice-int64.binis: 1.67768 seconds
+dataType:int8
+dataTypeInt: 1
+Execution time for: en, bin, int16, ./data/l_linenumber-int16.csv, ./output/bin/l_linenumber-int16.binis: 0.886608 seconds
+dataType:int8
+dataTypeInt: 1
+Execution time for: en, bin, int32, ./data/l_linenumber-int32.csv, ./output/bin/l_linenumber-int32.binis: 0.859775 seconds
+dataType:int8
+dataTypeInt: 1
+Execution time for: en, bin, int64, ./data/l_linenumber-int64.csv, ./output/bin/l_linenumber-int64.binis: 0.861195 seconds
+dataType:int8
+dataTypeInt: 1
+Execution time for: en, bin, int8, ./data/l_linenumber-int8.csv, ./output/bin/l_linenumber-int8.binis: 0.874504 seconds
+dataType:int32
+dataTypeInt: 3
+Execution time for: en, bin, int32, ./data/l_orderkey-int32.csv, ./output/bin/l_orderkey-int32.binis: 1.45805 seconds
+dataType:int32
+dataTypeInt: 3
+Execution time for: en, bin, int64, ./data/l_orderkey-int64.csv, ./output/bin/l_orderkey-int64.binis: 1.43011 seconds
+dataType:int32
+dataTypeInt: 3
+Execution time for: en, bin, int32, ./data/l_partkey-int32.csv, ./output/bin/l_partkey-int32.binis: 1.48957 seconds
+dataType:int32
+dataTypeInt: 3
+Execution time for: en, bin, int64, ./data/l_partkey-int64.csv, ./output/bin/l_partkey-int64.binis: 1.49406 seconds
+dataType:int8
+dataTypeInt: 1
+Execution time for: en, bin, int16, ./data/l_quantity-int16.csv, ./output/bin/l_quantity-int16.binis: 0.970054 seconds
+dataType:int8
+dataTypeInt: 1
+Execution time for: en, bin, int32, ./data/l_quantity-int32.csv, ./output/bin/l_quantity-int32.binis: 0.973198 seconds
+dataType:int8
+dataTypeInt: 1
+Execution time for: en, bin, int64, ./data/l_quantity-int64.csv, ./output/bin/l_quantity-int64.binis: 0.978041 seconds
+dataType:int8
+dataTypeInt: 1
+Execution time for: en, bin, int8, ./data/l_quantity-int8.csv, ./output/bin/l_quantity-int8.binis: 0.982745 seconds
+dataType:int16
+dataTypeInt: 2
+Execution time for: en, bin, int16, ./data/l_suppkey-int16.csv, ./output/bin/l_suppkey-int16.binis: 1.27202 seconds
+dataType:int16
+dataTypeInt: 2
+Execution time for: en, bin, int32, ./data/l_suppkey-int32.csv, ./output/bin/l_suppkey-int32.binis: 1.24803 seconds
+dataType:int16
+dataTypeInt: 2
+Execution time for: en, bin, int64, ./data/l_suppkey-int64.csv, ./output/bin/l_suppkey-int64.binis: 1.24862 seconds
+dataType:int8
+dataTypeInt: 1
+Execution time for: en, bin, int16, ./data/l_tax-int16.csv, ./output/bin/l_tax-int16.binis: 0.863231 seconds
+dataType:int8
+dataTypeInt: 1
+Execution time for: en, bin, int32, ./data/l_tax-int32.csv, ./output/bin/l_tax-int32.binis: 0.873719 seconds
+dataType:int8
+dataTypeInt: 1
+Execution time for: en, bin, int64, ./data/l_tax-int64.csv, ./output/bin/l_tax-int64.binis: 0.853987 seconds
+dataType:int8
+dataTypeInt: 1
+Execution time for: en, bin, int8, ./data/l_tax-int8.csv, ./output/bin/l_tax-int8.binis: 0.88007 seconds

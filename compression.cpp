@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include <stdexcept>
+#include <chrono>
 #include "global.h"
 
 // make
@@ -43,6 +44,9 @@ int main(int argc, char *argv[])
         std::cerr << "Invalid data type.\n";
         return 1;
     }
+
+    // Record start time
+    auto start = std::chrono::high_resolution_clock::now();
 
     // logic
     if (mode == "en")
@@ -96,6 +100,13 @@ int main(int argc, char *argv[])
         std::cerr << "Invalid mode.\n";
         return 1;
     }
+
+    // Record end time
+    auto end = std::chrono::high_resolution_clock::now();
+
+    // Calculate duration
+    std::chrono::duration<double> duration = end - start;
+    std::cout << "Execution time for: " << mode << ", " << technique << ", "<< dataType << ", "<< inputFilePath << ", "<< outputFilePath  << " is: " << duration.count() << " seconds\n";
     
     return 0;
 }

@@ -1,0 +1,102 @@
+./compression_program en bin int16 ./data/l_discount-int16.csv ./output/bin/l_discount-int16.bin
+./compression_program en bin int32 ./data/l_discount-int32.csv ./output/bin/l_discount-int32.bin
+./compression_program en bin int64 ./data/l_discount-int64.csv ./output/bin/l_discount-int64.bin
+./compression_program en bin int8 ./data/l_discount-int8.csv ./output/bin/l_discount-int8.bin
+
+./compression_program en bin int32 ./data/l_extendedprice-int32.csv ./output/bin/l_extendedprice-int32.bin
+./compression_program en bin int64 ./data/l_extendedprice-int64.csv ./output/bin/l_extendedprice-int64.bin
+
+./compression_program en bin int16 ./data/l_linenumber-int16.csv ./output/bin/l_linenumber-int16.bin
+./compression_program en bin int32 ./data/l_linenumber-int32.csv ./output/bin/l_linenumber-int32.bin
+./compression_program en bin int64 ./data/l_linenumber-int64.csv ./output/bin/l_linenumber-int64.bin
+./compression_program en bin int8 ./data/l_linenumber-int8.csv ./output/bin/l_linenumber-int8.bin
+
+./compression_program en bin int32 ./data/l_orderkey-int32.csv ./output/bin/l_orderkey-int32.bin
+./compression_program en bin int64 ./data/l_orderkey-int64.csv ./output/bin/l_orderkey-int64.bin
+
+./compression_program en bin int32 ./data/l_partkey-int32.csv ./output/bin/l_partkey-int32.bin
+./compression_program en bin int64 ./data/l_partkey-int64.csv ./output/bin/l_partkey-int64.bin
+
+./compression_program en bin int16 ./data/l_quantity-int16.csv ./output/bin/l_quantity-int16.bin
+./compression_program en bin int32 ./data/l_quantity-int32.csv ./output/bin/l_quantity-int32.bin
+./compression_program en bin int64 ./data/l_quantity-int64.csv ./output/bin/l_quantity-int64.bin
+./compression_program en bin int8 ./data/l_quantity-int8.csv ./output/bin/l_quantity-int8.bin
+
+./compression_program en bin int16 ./data/l_suppkey-int16.csv ./output/bin/l_suppkey-int16.bin
+./compression_program en bin int32 ./data/l_suppkey-int32.csv ./output/bin/l_suppkey-int32.bin
+./compression_program en bin int64 ./data/l_suppkey-int64.csv ./output/bin/l_suppkey-int64.bin
+
+./compression_program en bin int16 ./data/l_tax-int16.csv ./output/bin/l_tax-int16.bin
+./compression_program en bin int32 ./data/l_tax-int32.csv ./output/bin/l_tax-int32.bin
+./compression_program en bin int64 ./data/l_tax-int64.csv ./output/bin/l_tax-int64.bin
+./compression_program en bin int8 ./data/l_tax-int8.csv ./output/bin/l_tax-int8.bin
+
+
+
+./compression_program de bin int16 ./output/bin/l_discount-int16.bin ./output/bin/l_discount-int16.csv
+./compression_program de bin int32 ./output/bin/l_discount-int32.bin ./output/bin/l_discount-int32.csv
+./compression_program de bin int64 ./output/bin/l_discount-int64.bin ./output/bin/l_discount-int64.csv
+./compression_program de bin int8 ./output/bin/l_discount-int8.bin ./output/bin/l_discount-int8.csv
+
+./compression_program de bin int32 ./output/bin/l_extendedprice-int32.bin ./output/bin/l_extendedprice-int32.csv
+./compression_program de bin int64 ./output/bin/l_extendedprice-int64.bin ./output/bin/l_extendedprice-int64.csv
+
+./compression_program de bin int16 ./output/bin/l_linenumber-int16.bin ./output/bin/l_linenumber-int16.csv
+./compression_program de bin int32 ./output/bin/l_linenumber-int32.bin ./output/bin/l_linenumber-int32.csv
+./compression_program de bin int64 ./output/bin/l_linenumber-int64.bin ./output/bin/l_linenumber-int64.csv
+./compression_program de bin int8 ./output/bin/l_linenumber-int8.bin ./output/bin/l_linenumber-int8.csv
+
+./compression_program de bin int32 ./output/bin/l_orderkey-int32.bin ./output/bin/l_orderkey-int32.csv
+./compression_program de bin int64 ./output/bin/l_orderkey-int64.bin ./output/bin/l_orderkey-int64.csv
+
+./compression_program de bin int32 ./output/bin/l_partkey-int32.bin ./output/bin/l_partkey-int32.csv
+./compression_program de bin int64 ./output/bin/l_partkey-int64.bin ./output/bin/l_partkey-int64.csv
+
+./compression_program de bin int16 ./output/bin/l_quantity-int16.bin ./output/bin/l_quantity-int16.csv
+./compression_program de bin int32 ./output/bin/l_quantity-int32.bin ./output/bin/l_quantity-int32.csv
+./compression_program de bin int64 ./output/bin/l_quantity-int64.bin ./output/bin/l_quantity-int64.csv
+./compression_program de bin int8 ./output/bin/l_quantity-int8.bin ./output/bin/l_quantity-int8.csv
+
+./compression_program de bin int16 ./output/bin/l_suppkey-int16.bin ./output/bin/l_suppkey-int16.csv
+./compression_program de bin int32 ./output/bin/l_suppkey-int32.bin ./output/bin/l_suppkey-int32.csv
+./compression_program de bin int64 ./output/bin/l_suppkey-int64.bin ./output/bin/l_suppkey-int64.csv
+
+./compression_program de bin int16 ./output/bin/l_tax-int16.bin ./output/bin/l_tax-int16.csv
+./compression_program de bin int32 ./output/bin/l_tax-int32.bin ./output/bin/l_tax-int32.csv
+./compression_program de bin int64 ./output/bin/l_tax-int64.bin ./output/bin/l_tax-int64.csv
+./compression_program de bin int8 ./output/bin/l_tax-int8.bin ./output/bin/l_tax-int8.csv
+
+
+
+diff ./data/l_discount-int16.csv ./output/bin/l_discount-int16.csv
+diff ./data/l_discount-int32.csv ./output/bin/l_discount-int32.csv
+diff ./data/l_discount-int64.csv ./output/bin/l_discount-int64.csv
+diff ./data/l_discount-int8.csv ./output/bin/l_discount-int8.csv
+
+diff ./data/l_extendedprice-int32.csv ./output/bin/l_extendedprice-int32.csv
+diff ./data/l_extendedprice-int64.csv ./output/bin/l_extendedprice-int64.csv
+
+diff ./data/l_linenumber-int16.csv ./output/bin/l_linenumber-int16.csv
+diff ./data/l_linenumber-int32.csv ./output/bin/l_linenumber-int32.csv
+diff ./data/l_linenumber-int64.csv ./output/bin/l_linenumber-int64.csv
+diff ./data/l_linenumber-int8.csv ./output/bin/l_linenumber-int8.csv
+
+diff ./data/l_orderkey-int32.csv ./output/bin/l_orderkey-int32.csv
+diff ./data/l_orderkey-int64.csv ./output/bin/l_orderkey-int64.csv
+
+diff ./data/l_partkey-int32.csv ./output/bin/l_partkey-int32.csv
+diff ./data/l_partkey-int64.csv ./output/bin/l_partkey-int64.csv
+
+diff ./data/l_quantity-int16.csv ./output/bin/l_quantity-int16.csv
+diff ./data/l_quantity-int32.csv ./output/bin/l_quantity-int32.csv
+diff ./data/l_quantity-int64.csv ./output/bin/l_quantity-int64.csv
+diff ./data/l_quantity-int8.csv ./output/bin/l_quantity-int8.csv
+
+diff ./data/l_suppkey-int16.csv ./output/bin/l_suppkey-int16.csv
+diff ./data/l_suppkey-int32.csv ./output/bin/l_suppkey-int32.csv
+diff ./data/l_suppkey-int64.csv ./output/bin/l_suppkey-int64.csv
+
+diff ./data/l_tax-int16.csv ./output/bin/l_tax-int16.csv
+diff ./data/l_tax-int32.csv ./output/bin/l_tax-int32.csv
+diff ./data/l_tax-int64.csv ./output/bin/l_tax-int64.csv
+diff ./data/l_tax-int8.csv ./output/bin/l_tax-int8.csv
