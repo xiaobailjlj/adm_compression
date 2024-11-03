@@ -65,3 +65,38 @@
 ./compression_program de for int32 ./output/for/l_tax-int32.for ./output/for/l_tax-int32.csv
 ./compression_program de for int64 ./output/for/l_tax-int64.for ./output/for/l_tax-int64.csv
 ./compression_program de for int8 ./output/for/l_tax-int8.for ./output/for/l_tax-int8.csv
+
+
+
+diff ./data/l_discount-int16.csv ./output/for/l_discount-int16.csv
+diff ./data/l_discount-int32.csv ./output/for/l_discount-int32.csv
+diff ./data/l_discount-int64.csv ./output/for/l_discount-int64.csv
+diff ./data/l_discount-int8.csv ./output/for/l_discount-int8.csv
+
+diff ./data/l_extendedprice-int32.csv ./output/for/l_extendedprice-int32.csv
+diff ./data/l_extendedprice-int64.csv ./output/for/l_extendedprice-int64.csv
+
+diff ./data/l_linenumber-int16.csv ./output/for/l_linenumber-int16.csv
+diff ./data/l_linenumber-int32.csv ./output/for/l_linenumber-int32.csv
+diff ./data/l_linenumber-int64.csv ./output/for/l_linenumber-int64.csv
+diff ./data/l_linenumber-int8.csv ./output/for/l_linenumber-int8.csv
+
+diff ./data/l_orderkey-int32.csv ./output/for/l_orderkey-int32.csv
+diff ./data/l_orderkey-int64.csv ./output/for/l_orderkey-int64.csv
+
+diff ./data/l_partkey-int32.csv ./output/for/l_partkey-int32.csv
+diff ./data/l_partkey-int64.csv ./output/for/l_partkey-int64.csv
+
+diff ./data/l_quantity-int16.csv ./output/for/l_quantity-int16.csv
+diff ./data/l_quantity-int32.csv ./output/for/l_quantity-int32.csv
+diff ./data/l_quantity-int64.csv ./output/for/l_quantity-int64.csv
+diff ./data/l_quantity-int8.csv ./output/for/l_quantity-int8.csv
+
+diff ./data/l_suppkey-int16.csv ./output/for/l_suppkey-int16.csv
+diff ./data/l_suppkey-int32.csv ./output/for/l_suppkey-int32.csv
+diff ./data/l_suppkey-int64.csv ./output/for/l_suppkey-int64.csv
+
+diff ./data/l_tax-int16.csv ./output/for/l_tax-int16.csv
+diff ./data/l_tax-int32.csv ./output/for/l_tax-int32.csv
+diff ./data/l_tax-int64.csv ./output/for/l_tax-int64.csv
+diff ./data/l_tax-int8.csv ./output/for/l_tax-int8.csv

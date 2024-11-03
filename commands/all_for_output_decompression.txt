@@ -1,0 +1,100 @@
+Start decompression. 
+baseValue:4
+dataType:int8
+Execution time for: de, for, int16, ./output/for/l_discount-int16.for, ./output/for/l_discount-int16.csv is: 0.533439 seconds
+Start decompression. 
+baseValue:4
+dataType:int8
+Execution time for: de, for, int32, ./output/for/l_discount-int32.for, ./output/for/l_discount-int32.csv is: 0.49793 seconds
+Start decompression. 
+baseValue:4
+dataType:int8
+Execution time for: de, for, int64, ./output/for/l_discount-int64.for, ./output/for/l_discount-int64.csv is: 0.569304 seconds
+Start decompression. 
+baseValue:4
+dataType:int8
+Execution time for: de, for, int8, ./output/for/l_discount-int8.for, ./output/for/l_discount-int8.csv is: 0.522372 seconds
+Start decompression. 
+baseValue:3083801
+dataType:int32
+Execution time for: de, for, int32, ./output/for/l_extendedprice-int32.for, ./output/for/l_extendedprice-int32.csv is: 0.63449 seconds
+Start decompression. 
+baseValue:3083801
+dataType:int32
+Execution time for: de, for, int64, ./output/for/l_extendedprice-int64.for, ./output/for/l_extendedprice-int64.csv is: 0.679448 seconds
+Start decompression. 
+baseValue:2
+dataType:int8
+Execution time for: de, for, int16, ./output/for/l_linenumber-int16.for, ./output/for/l_linenumber-int16.csv is: 0.514859 seconds
+Start decompression. 
+baseValue:2
+dataType:int8
+Execution time for: de, for, int32, ./output/for/l_linenumber-int32.for, ./output/for/l_linenumber-int32.csv is: 0.550884 seconds
+Start decompression. 
+baseValue:2
+dataType:int8
+Execution time for: de, for, int64, ./output/for/l_linenumber-int64.for, ./output/for/l_linenumber-int64.csv is: 0.515446 seconds
+Start decompression. 
+baseValue:2
+dataType:int8
+Execution time for: de, for, int8, ./output/for/l_linenumber-int8.for, ./output/for/l_linenumber-int8.csv is: 0.519715 seconds
+Start decompression. 
+baseValue:3534117
+dataType:int32
+Execution time for: de, for, int32, ./output/for/l_orderkey-int32.for, ./output/for/l_orderkey-int32.csv is: 0.69687 seconds
+Start decompression. 
+baseValue:3534117
+dataType:int32
+Execution time for: de, for, int64, ./output/for/l_orderkey-int64.for, ./output/for/l_orderkey-int64.csv is: 0.670322 seconds
+Start decompression. 
+baseValue:92097
+dataType:int32
+Execution time for: de, for, int32, ./output/for/l_partkey-int32.for, ./output/for/l_partkey-int32.csv is: 0.677447 seconds
+Start decompression. 
+baseValue:92097
+dataType:int32
+Execution time for: de, for, int64, ./output/for/l_partkey-int64.for, ./output/for/l_partkey-int64.csv is: 0.666233 seconds
+Start decompression. 
+baseValue:24
+dataType:int8
+Execution time for: de, for, int16, ./output/for/l_quantity-int16.for, ./output/for/l_quantity-int16.csv is: 0.531529 seconds
+Start decompression. 
+baseValue:24
+dataType:int8
+Execution time for: de, for, int32, ./output/for/l_quantity-int32.for, ./output/for/l_quantity-int32.csv is: 0.546205 seconds
+Start decompression. 
+baseValue:24
+dataType:int8
+Execution time for: de, for, int64, ./output/for/l_quantity-int64.for, ./output/for/l_quantity-int64.csv is: 0.566799 seconds
+Start decompression. 
+baseValue:24
+dataType:int8
+Execution time for: de, for, int8, ./output/for/l_quantity-int8.for, ./output/for/l_quantity-int8.csv is: 0.531772 seconds
+Start decompression. 
+baseValue:3421
+dataType:int16
+Execution time for: de, for, int16, ./output/for/l_suppkey-int16.for, ./output/for/l_suppkey-int16.csv is: 0.614646 seconds
+Start decompression. 
+baseValue:3421
+dataType:int16
+Execution time for: de, for, int32, ./output/for/l_suppkey-int32.for, ./output/for/l_suppkey-int32.csv is: 0.604299 seconds
+Start decompression. 
+baseValue:3421
+dataType:int16
+Execution time for: de, for, int64, ./output/for/l_suppkey-int64.for, ./output/for/l_suppkey-int64.csv is: 0.614962 seconds
+Start decompression. 
+baseValue:2
+dataType:int8
+Execution time for: de, for, int16, ./output/for/l_tax-int16.for, ./output/for/l_tax-int16.csv is: 0.500346 seconds
+Start decompression. 
+baseValue:2
+dataType:int8
+Execution time for: de, for, int32, ./output/for/l_tax-int32.for, ./output/for/l_tax-int32.csv is: 0.508588 seconds
+Start decompression. 
+baseValue:2
+dataType:int8
+Execution time for: de, for, int64, ./output/for/l_tax-int64.for, ./output/for/l_tax-int64.csv is: 0.510953 seconds
+Start decompression. 
+baseValue:2
+dataType:int8
+Execution time for: de, for, int8, ./output/for/l_tax-int8.for, ./output/for/l_tax-int8.csv is: 0.514532 seconds

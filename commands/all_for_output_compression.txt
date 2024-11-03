@@ -1,0 +1,200 @@
+Start compression. 
+midianValue:4
+baseValue:4
+maxRegularValue:130
+minRegularValue:-123
+dataType:int8
+dataTypeInt: 1
+Execution time for: en, for, int16, ./data/l_discount-int16.csv, ./output/for/l_discount-int16.for is: 0.891093 seconds
+Start compression. 
+midianValue:4
+baseValue:4
+maxRegularValue:130
+minRegularValue:-123
+dataType:int8
+dataTypeInt: 1
+Execution time for: en, for, int32, ./data/l_discount-int32.csv, ./output/for/l_discount-int32.for is: 0.890571 seconds
+Start compression. 
+midianValue:4
+baseValue:4
+maxRegularValue:130
+minRegularValue:-123
+dataType:int8
+dataTypeInt: 1
+Execution time for: en, for, int64, ./data/l_discount-int64.csv, ./output/for/l_discount-int64.for is: 0.883054 seconds
+Start compression. 
+midianValue:4
+baseValue:4
+maxRegularValue:130
+minRegularValue:-123
+dataType:int8
+dataTypeInt: 1
+Execution time for: en, for, int8, ./data/l_discount-int8.csv, ./output/for/l_discount-int8.for is: 0.875131 seconds
+Start compression. 
+midianValue:3083801
+baseValue:3083801
+maxRegularValue:3083927
+minRegularValue:3083674
+dataType:int32
+dataTypeInt: 3
+Execution time for: en, for, int32, ./data/l_extendedprice-int32.csv, ./output/for/l_extendedprice-int32.for is: 1.75367 seconds
+Start compression. 
+midianValue:3083801
+baseValue:3083801
+maxRegularValue:3083927
+minRegularValue:3083674
+dataType:int32
+dataTypeInt: 3
+Execution time for: en, for, int64, ./data/l_extendedprice-int64.csv, ./output/for/l_extendedprice-int64.for is: 1.74088 seconds
+Start compression. 
+midianValue:2
+baseValue:2
+maxRegularValue:128
+minRegularValue:-125
+dataType:int8
+dataTypeInt: 1
+Execution time for: en, for, int16, ./data/l_linenumber-int16.csv, ./output/for/l_linenumber-int16.for is: 0.901864 seconds
+Start compression. 
+midianValue:2
+baseValue:2
+maxRegularValue:128
+minRegularValue:-125
+dataType:int8
+dataTypeInt: 1
+Execution time for: en, for, int32, ./data/l_linenumber-int32.csv, ./output/for/l_linenumber-int32.for is: 0.899329 seconds
+Start compression. 
+midianValue:2
+baseValue:2
+maxRegularValue:128
+minRegularValue:-125
+dataType:int8
+dataTypeInt: 1
+Execution time for: en, for, int64, ./data/l_linenumber-int64.csv, ./output/for/l_linenumber-int64.for is: 0.927694 seconds
+Start compression. 
+midianValue:2
+baseValue:2
+maxRegularValue:128
+minRegularValue:-125
+dataType:int8
+dataTypeInt: 1
+Execution time for: en, for, int8, ./data/l_linenumber-int8.csv, ./output/for/l_linenumber-int8.for is: 0.893474 seconds
+Start compression. 
+midianValue:3534117
+baseValue:3534117
+maxRegularValue:3534243
+minRegularValue:3533990
+dataType:int32
+dataTypeInt: 3
+Execution time for: en, for, int32, ./data/l_orderkey-int32.csv, ./output/for/l_orderkey-int32.for is: 1.50143 seconds
+Start compression. 
+midianValue:3534117
+baseValue:3534117
+maxRegularValue:3534243
+minRegularValue:3533990
+dataType:int32
+dataTypeInt: 3
+Execution time for: en, for, int64, ./data/l_orderkey-int64.csv, ./output/for/l_orderkey-int64.for is: 1.56232 seconds
+Start compression. 
+midianValue:92097
+baseValue:92097
+maxRegularValue:92223
+minRegularValue:91970
+dataType:int32
+dataTypeInt: 3
+Execution time for: en, for, int32, ./data/l_partkey-int32.csv, ./output/for/l_partkey-int32.for is: 1.58523 seconds
+Start compression. 
+midianValue:92097
+baseValue:92097
+maxRegularValue:92223
+minRegularValue:91970
+dataType:int32
+dataTypeInt: 3
+Execution time for: en, for, int64, ./data/l_partkey-int64.csv, ./output/for/l_partkey-int64.for is: 1.59646 seconds
+Start compression. 
+midianValue:24
+baseValue:24
+maxRegularValue:150
+minRegularValue:-103
+dataType:int8
+dataTypeInt: 1
+Execution time for: en, for, int16, ./data/l_quantity-int16.csv, ./output/for/l_quantity-int16.for is: 1.0107 seconds
+Start compression. 
+midianValue:24
+baseValue:24
+maxRegularValue:150
+minRegularValue:-103
+dataType:int8
+dataTypeInt: 1
+Execution time for: en, for, int32, ./data/l_quantity-int32.csv, ./output/for/l_quantity-int32.for is: 1.00122 seconds
+Start compression. 
+midianValue:24
+baseValue:24
+maxRegularValue:150
+minRegularValue:-103
+dataType:int8
+dataTypeInt: 1
+Execution time for: en, for, int64, ./data/l_quantity-int64.csv, ./output/for/l_quantity-int64.for is: 1.03974 seconds
+Start compression. 
+midianValue:24
+baseValue:24
+maxRegularValue:150
+minRegularValue:-103
+dataType:int8
+dataTypeInt: 1
+Execution time for: en, for, int8, ./data/l_quantity-int8.csv, ./output/for/l_quantity-int8.for is: 1.0229 seconds
+Start compression. 
+midianValue:3421
+baseValue:3421
+maxRegularValue:3547
+minRegularValue:3294
+dataType:int16
+dataTypeInt: 2
+Execution time for: en, for, int16, ./data/l_suppkey-int16.csv, ./output/for/l_suppkey-int16.for is: 1.33583 seconds
+Start compression. 
+midianValue:3421
+baseValue:3421
+maxRegularValue:3547
+minRegularValue:3294
+dataType:int16
+dataTypeInt: 2
+Execution time for: en, for, int32, ./data/l_suppkey-int32.csv, ./output/for/l_suppkey-int32.for is: 1.35977 seconds
+Start compression. 
+midianValue:3421
+baseValue:3421
+maxRegularValue:3547
+minRegularValue:3294
+dataType:int16
+dataTypeInt: 2
+Execution time for: en, for, int64, ./data/l_suppkey-int64.csv, ./output/for/l_suppkey-int64.for is: 1.35939 seconds
+Start compression. 
+midianValue:2
+baseValue:2
+maxRegularValue:128
+minRegularValue:-125
+dataType:int8
+dataTypeInt: 1
+Execution time for: en, for, int16, ./data/l_tax-int16.csv, ./output/for/l_tax-int16.for is: 0.918315 seconds
+Start compression. 
+midianValue:2
+baseValue:2
+maxRegularValue:128
+minRegularValue:-125
+dataType:int8
+dataTypeInt: 1
+Execution time for: en, for, int32, ./data/l_tax-int32.csv, ./output/for/l_tax-int32.for is: 0.901844 seconds
+Start compression. 
+midianValue:2
+baseValue:2
+maxRegularValue:128
+minRegularValue:-125
+dataType:int8
+dataTypeInt: 1
+Execution time for: en, for, int64, ./data/l_tax-int64.csv, ./output/for/l_tax-int64.for is: 0.910277 seconds
+Start compression. 
+midianValue:2
+baseValue:2
+maxRegularValue:128
+minRegularValue:-125
+dataType:int8
+dataTypeInt: 1
+Execution time for: en, for, int8, ./data/l_tax-int8.csv, ./output/for/l_tax-int8.for is: 0.907093 seconds
