@@ -1,0 +1,150 @@
+Start compression. 
+max_positive:127
+min_negative:-128
+dataType:int8
+dataTypeInt: 1
+Execution time for: en, dif, int16, ./data/l_discount-int16.csv, ./output/dif/l_discount-int16.dif is: 0.874111 seconds
+Start compression. 
+max_positive:127
+min_negative:-128
+dataType:int8
+dataTypeInt: 1
+Execution time for: en, dif, int32, ./data/l_discount-int32.csv, ./output/dif/l_discount-int32.dif is: 0.875756 seconds
+Start compression. 
+max_positive:127
+min_negative:-128
+dataType:int8
+dataTypeInt: 1
+Execution time for: en, dif, int64, ./data/l_discount-int64.csv, ./output/dif/l_discount-int64.dif is: 0.879573 seconds
+Start compression. 
+max_positive:127
+min_negative:-128
+dataType:int8
+dataTypeInt: 1
+Execution time for: en, dif, int8, ./data/l_discount-int8.csv, ./output/dif/l_discount-int8.dif is: 0.872247 seconds
+Start compression. 
+max_positive:127
+min_negative:-128
+dataType:int32
+dataTypeInt: 3
+Execution time for: en, dif, int32, ./data/l_extendedprice-int32.csv, ./output/dif/l_extendedprice-int32.dif is: 1.73933 seconds
+Start compression. 
+max_positive:127
+min_negative:-128
+dataType:int32
+dataTypeInt: 3
+Execution time for: en, dif, int64, ./data/l_extendedprice-int64.csv, ./output/dif/l_extendedprice-int64.dif is: 1.73238 seconds
+Start compression. 
+max_positive:127
+min_negative:-128
+dataType:int8
+dataTypeInt: 1
+Execution time for: en, dif, int16, ./data/l_linenumber-int16.csv, ./output/dif/l_linenumber-int16.dif is: 0.861491 seconds
+Start compression. 
+max_positive:127
+min_negative:-128
+dataType:int8
+dataTypeInt: 1
+Execution time for: en, dif, int32, ./data/l_linenumber-int32.csv, ./output/dif/l_linenumber-int32.dif is: 0.864499 seconds
+Start compression. 
+max_positive:127
+min_negative:-128
+dataType:int8
+dataTypeInt: 1
+Execution time for: en, dif, int64, ./data/l_linenumber-int64.csv, ./output/dif/l_linenumber-int64.dif is: 0.881209 seconds
+Start compression. 
+max_positive:127
+min_negative:-128
+dataType:int8
+dataTypeInt: 1
+Execution time for: en, dif, int8, ./data/l_linenumber-int8.csv, ./output/dif/l_linenumber-int8.dif is: 0.879343 seconds
+Start compression. 
+max_positive:127
+min_negative:-128
+dataType:int32
+dataTypeInt: 3
+Execution time for: en, dif, int32, ./data/l_orderkey-int32.csv, ./output/dif/l_orderkey-int32.dif is: 1.42532 seconds
+Start compression. 
+max_positive:127
+min_negative:-128
+dataType:int32
+dataTypeInt: 3
+Execution time for: en, dif, int64, ./data/l_orderkey-int64.csv, ./output/dif/l_orderkey-int64.dif is: 1.42123 seconds
+Start compression. 
+max_positive:127
+min_negative:-128
+dataType:int32
+dataTypeInt: 3
+Execution time for: en, dif, int32, ./data/l_partkey-int32.csv, ./output/dif/l_partkey-int32.dif is: 1.56841 seconds
+Start compression. 
+max_positive:127
+min_negative:-128
+dataType:int32
+dataTypeInt: 3
+Execution time for: en, dif, int64, ./data/l_partkey-int64.csv, ./output/dif/l_partkey-int64.dif is: 1.64799 seconds
+Start compression. 
+max_positive:127
+min_negative:-128
+dataType:int8
+dataTypeInt: 1
+Execution time for: en, dif, int16, ./data/l_quantity-int16.csv, ./output/dif/l_quantity-int16.dif is: 0.979503 seconds
+Start compression. 
+max_positive:127
+min_negative:-128
+dataType:int8
+dataTypeInt: 1
+Execution time for: en, dif, int32, ./data/l_quantity-int32.csv, ./output/dif/l_quantity-int32.dif is: 1.00001 seconds
+Start compression. 
+max_positive:127
+min_negative:-128
+dataType:int8
+dataTypeInt: 1
+Execution time for: en, dif, int64, ./data/l_quantity-int64.csv, ./output/dif/l_quantity-int64.dif is: 1.01696 seconds
+Start compression. 
+max_positive:127
+min_negative:-128
+dataType:int8
+dataTypeInt: 1
+Execution time for: en, dif, int8, ./data/l_quantity-int8.csv, ./output/dif/l_quantity-int8.dif is: 0.982905 seconds
+Start compression. 
+max_positive:127
+min_negative:-128
+dataType:int16
+dataTypeInt: 2
+Execution time for: en, dif, int16, ./data/l_suppkey-int16.csv, ./output/dif/l_suppkey-int16.dif is: 1.32166 seconds
+Start compression. 
+max_positive:127
+min_negative:-128
+dataType:int16
+dataTypeInt: 2
+Execution time for: en, dif, int32, ./data/l_suppkey-int32.csv, ./output/dif/l_suppkey-int32.dif is: 1.31014 seconds
+Start compression. 
+max_positive:127
+min_negative:-128
+dataType:int16
+dataTypeInt: 2
+Execution time for: en, dif, int64, ./data/l_suppkey-int64.csv, ./output/dif/l_suppkey-int64.dif is: 1.31906 seconds
+Start compression. 
+max_positive:127
+min_negative:-128
+dataType:int8
+dataTypeInt: 1
+Execution time for: en, dif, int16, ./data/l_tax-int16.csv, ./output/dif/l_tax-int16.dif is: 0.88241 seconds
+Start compression. 
+max_positive:127
+min_negative:-128
+dataType:int8
+dataTypeInt: 1
+Execution time for: en, dif, int32, ./data/l_tax-int32.csv, ./output/dif/l_tax-int32.dif is: 0.870339 seconds
+Start compression. 
+max_positive:127
+min_negative:-128
+dataType:int8
+dataTypeInt: 1
+Execution time for: en, dif, int64, ./data/l_tax-int64.csv, ./output/dif/l_tax-int64.dif is: 0.900441 seconds
+Start compression. 
+max_positive:127
+min_negative:-128
+dataType:int8
+dataTypeInt: 1
+Execution time for: en, dif, int8, ./data/l_tax-int8.csv, ./output/dif/l_tax-int8.dif is: 0.871816 seconds

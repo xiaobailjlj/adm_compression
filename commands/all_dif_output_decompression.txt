@@ -1,0 +1,75 @@
+Start decompression. 
+dataType:int8
+Execution time for: de, dif, int16, ./output/dif/l_discount-int16.dif, ./output/dif/l_discount-int16.csv is: 0.500967 seconds
+Start decompression. 
+dataType:int8
+Execution time for: de, dif, int32, ./output/dif/l_discount-int32.dif, ./output/dif/l_discount-int32.csv is: 0.505129 seconds
+Start decompression. 
+dataType:int8
+Execution time for: de, dif, int64, ./output/dif/l_discount-int64.dif, ./output/dif/l_discount-int64.csv is: 0.514297 seconds
+Start decompression. 
+dataType:int8
+Execution time for: de, dif, int8, ./output/dif/l_discount-int8.dif, ./output/dif/l_discount-int8.csv is: 0.520371 seconds
+Start decompression. 
+dataType:int32
+Execution time for: de, dif, int32, ./output/dif/l_extendedprice-int32.dif, ./output/dif/l_extendedprice-int32.csv is: 0.654304 seconds
+Start decompression. 
+dataType:int32
+Execution time for: de, dif, int64, ./output/dif/l_extendedprice-int64.dif, ./output/dif/l_extendedprice-int64.csv is: 0.715612 seconds
+Start decompression. 
+dataType:int8
+Execution time for: de, dif, int16, ./output/dif/l_linenumber-int16.dif, ./output/dif/l_linenumber-int16.csv is: 0.498721 seconds
+Start decompression. 
+dataType:int8
+Execution time for: de, dif, int32, ./output/dif/l_linenumber-int32.dif, ./output/dif/l_linenumber-int32.csv is: 0.501784 seconds
+Start decompression. 
+dataType:int8
+Execution time for: de, dif, int64, ./output/dif/l_linenumber-int64.dif, ./output/dif/l_linenumber-int64.csv is: 0.501725 seconds
+Start decompression. 
+dataType:int8
+Execution time for: de, dif, int8, ./output/dif/l_linenumber-int8.dif, ./output/dif/l_linenumber-int8.csv is: 0.504026 seconds
+Start decompression. 
+dataType:int32
+Execution time for: de, dif, int32, ./output/dif/l_orderkey-int32.dif, ./output/dif/l_orderkey-int32.csv is: 0.590416 seconds
+Start decompression. 
+dataType:int32
+Execution time for: de, dif, int64, ./output/dif/l_orderkey-int64.dif, ./output/dif/l_orderkey-int64.csv is: 0.598619 seconds
+Start decompression. 
+dataType:int32
+Execution time for: de, dif, int32, ./output/dif/l_partkey-int32.dif, ./output/dif/l_partkey-int32.csv is: 0.654276 seconds
+Start decompression. 
+dataType:int32
+Execution time for: de, dif, int64, ./output/dif/l_partkey-int64.dif, ./output/dif/l_partkey-int64.csv is: 0.648274 seconds
+Start decompression. 
+dataType:int8
+Execution time for: de, dif, int16, ./output/dif/l_quantity-int16.dif, ./output/dif/l_quantity-int16.csv is: 0.530957 seconds
+Start decompression. 
+dataType:int8
+Execution time for: de, dif, int32, ./output/dif/l_quantity-int32.dif, ./output/dif/l_quantity-int32.csv is: 0.578585 seconds
+Start decompression. 
+dataType:int8
+Execution time for: de, dif, int64, ./output/dif/l_quantity-int64.dif, ./output/dif/l_quantity-int64.csv is: 0.536471 seconds
+Start decompression. 
+dataType:int8
+Execution time for: de, dif, int8, ./output/dif/l_quantity-int8.dif, ./output/dif/l_quantity-int8.csv is: 0.530919 seconds
+Start decompression. 
+dataType:int16
+Execution time for: de, dif, int16, ./output/dif/l_suppkey-int16.dif, ./output/dif/l_suppkey-int16.csv is: 0.612167 seconds
+Start decompression. 
+dataType:int16
+Execution time for: de, dif, int32, ./output/dif/l_suppkey-int32.dif, ./output/dif/l_suppkey-int32.csv is: 0.611902 seconds
+Start decompression. 
+dataType:int16
+Execution time for: de, dif, int64, ./output/dif/l_suppkey-int64.dif, ./output/dif/l_suppkey-int64.csv is: 0.598303 seconds
+Start decompression. 
+dataType:int8
+Execution time for: de, dif, int16, ./output/dif/l_tax-int16.dif, ./output/dif/l_tax-int16.csv is: 0.497505 seconds
+Start decompression. 
+dataType:int8
+Execution time for: de, dif, int32, ./output/dif/l_tax-int32.dif, ./output/dif/l_tax-int32.csv is: 0.502373 seconds
+Start decompression. 
+dataType:int8
+Execution time for: de, dif, int64, ./output/dif/l_tax-int64.dif, ./output/dif/l_tax-int64.csv is: 0.501181 seconds
+Start decompression. 
+dataType:int8
+Execution time for: de, dif, int8, ./output/dif/l_tax-int8.dif, ./output/dif/l_tax-int8.csv is: 0.499858 seconds
