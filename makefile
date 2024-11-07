@@ -6,7 +6,7 @@ CXXFLAGS = -Wall -std=c++11
 TARGET = compression_program
 
 # Source files
-SRCS = compression.cpp technique_bin.cpp technique_for.cpp technique_dif.cpp compress_dic.cpp
+SRCS = compression.cpp technique_bin.cpp technique_for.cpp technique_dif.cpp compress_dic.cpp technique_rle.cpp
 # SRCS = compression.cpp technique_bin.cpp technique_rle.cpp technique_dic.cpp technique_for.cpp technique_dif.cpp
 
 # Object files (replace .cpp with .o for each source file)
