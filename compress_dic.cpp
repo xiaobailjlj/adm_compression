@@ -101,6 +101,93 @@ void write_to_file(int originInt, int compressInt, std::vector<T>& values, std::
     outputFile.close();
 }
 
+// template<typename T>
+// void compress_dic_impl_binary(const std::string& inputFilePath, const std::string& outputFilePath) {
+//     std::ifstream inputFile(inputFilePath);
+//     std::ofstream outputFile(outputFilePath, std::ios::binary);
+//     // std::ofstream dicFile(dicFilePath, std::ios::binary);
+//     if (!inputFile.is_open()) {
+//         std::cerr << "Error: failed to open input file " << inputFilePath << std::endl;
+//         return;
+//     }
+//     if (!outputFile.is_open()) {
+//         std::cerr << "Error: failed to open output file " << outputFilePath << std::endl;
+//         return;
+//     }
+//     // if (!dicFile.is_open()) {
+//     //     std::cerr << "Error: failed to open dictionary file " << dicFilePath << std::endl;
+//     //     return;
+//     // }
+
+//     std::vector<T> values;
+//     T value;
+//     while (inputFile >> value) {
+//         // std::cout << "input:" << value << "\n" << std::endl;
+//         values.push_back(value);
+//     }
+
+//     inputFile.close();
+
+//     if(std::is_same<T, int16_t>::value) {
+//         // std::cout << "if compressing int8_values\n" << std::endl;
+//         if (is_within_range_int8(values)) {
+//             std::vector<int8_t> int8_values;
+//             for(const T& val : values){
+//                 int8_values.push_back(static_cast<int8_t>(val));
+//             }
+//             std::cout << "compressing int8_values\n" << std::endl;
+//             write_to_file<int8_t>(1, int8_values, outputFile);
+//             return;
+//         }
+//     } else if (std::is_same<T, int32_t>::value) {
+//             if (is_within_range_int8(values)) {
+//                std::vector<int8_t> int8_values;
+//                for(const T& val : values){
+//                     int8_values.push_back(static_cast<int8_t>(val));
+//                }
+//                std::cout << "compressing int8_values\n" << std::endl;
+//                 write_to_file<int8_t>(1, int8_values, outputFile);
+//                 return;
+//             }else if (is_within_range_int16(values)) {
+//                std::vector<int16_t> int16_values;
+//                for(const T& val : values){
+//                     int16_values.push_back(static_cast<int16_t>(val));
+//                }
+//                std::cout << "compressing int16_values\n" << std::endl;
+//                 write_to_file<int16_t>(2, int16_values, outputFile);
+//                 return;
+//             }
+//     } else if (std::is_same<T, int64_t>::value) {
+//             if (is_within_range_int8(values)) {
+//                std::vector<int8_t> int8_values;
+//                for(const T& val : values){
+//                     int8_values.push_back(static_cast<int8_t>(val));
+//                }
+//                std::cout << "compressing int8_values\n" << std::endl;
+//                 write_to_file<int8_t>(1, int8_values, outputFile);
+//                 return;
+//             }else if (is_within_range_int16(values)) {
+//                std::vector<int16_t> int16_values;
+//                for(const T& val : values){
+//                     int16_values.push_back(static_cast<int16_t>(val));
+//                }
+//                std::cout << "compressing int16_values\n" << std::endl;
+//                 write_to_file<int16_t>(2, int16_values, outputFile);
+//                 return;
+//             }else if (is_within_range_int32(values)) {
+//                std::vector<int32_t> int32_values;
+//                for(const T& val : values){
+//                     int32_values.push_back(static_cast<int32_t>(val));
+//                }
+//                std::cout << "compressing int32_values\n" << std::endl;
+//                 write_to_file<int32_t>(3, int32_values, outputFile);
+//                 return;
+//             }
+//     }
+
+//     write_to_file<T>(0, values, outputFile);
+// }
+
 
 void compress_dic_impl_binary_int8(const std::string& inputFilePath, const std::string& outputFilePath) {
     std::ifstream inputFile(inputFilePath);
@@ -252,14 +339,78 @@ void compress_dic_impl_string(const std::string& inputFilePath, const std::strin
 
     std::vector<std::string> values;
     std::string value;
-    while (inputFile >> value) {
-        // std::cout << "input:" << value << "\n" << std::endl;
-        values.push_back(value);
+    std::string line;
+    while (std::getline(inputFile, line)) {
+        // std::cout << "input:" << line << "\n" << std::endl;
+        values.push_back(line);
     }
 
     inputFile.close();
 
-    write_to_file<std::string>(5,5, values, outputFile);
+    // write_to_file<std::string>(5,5, values, outputFile);
+
+    std::map<std::string, int> dictionary;
+    std::vector<std::string> dicValues;
+    int index = 0;
+    for(const std::string& value : values) {
+        // std::cout << "input:" << value << "\n" << std::endl;
+        // std::cout << "bitset:" << std::bitset<8>(value) << "\n" << std::endl;
+        if (dictionary.find(value) == dictionary.end()) {
+            dicValues.push_back(value);
+            dictionary[value] = index++;
+        }
+    }
+
+    int originInt = 5;
+    int compressInt = 5;
+    // write the compressed date type to output file
+    outputFile.write(reinterpret_cast<char*>(&originInt), sizeof(originInt));
+    outputFile.write(reinterpret_cast<char*>(&compressInt), sizeof(compressInt));
+
+    // write the dictionary to output file
+    outputFile.write(reinterpret_cast<char*>(&index), sizeof(index));
+    std::cout << "dictSize:" << index << "\n" << std::endl;
+
+    for (int i = 0; i < dicValues.size(); i++) {
+        // std::cout << "bitset:" << std::bitset<8>(dicValues[i]) << "\n" << std::endl;
+
+        int size = sizeof(dicValues[i]);
+        // outputFile.write(reinterpret_cast<char*>(&size), sizeof(size));
+        outputFile.write(reinterpret_cast<char*>(&dicValues[i]), sizeof(dicValues[i]));
+        // std::cout << "size:" << size << "\n" << std::endl;
+        // std::cout << "value:" << dicValues[i] << "\n" << std::endl;
+    }
+
+   // write the compressed values to output file
+    int valueCount = values.size();
+    outputFile.write(reinterpret_cast<char*>(&valueCount), sizeof(valueCount));
+    std::cout << "valueCount: " << valueCount << "\n" << std::endl;
+
+    // compress index based on the range of values
+    int indexInt = 0;
+    if (index < 128 && index > -128) {
+        indexInt = 1;
+    } else if (index < 32768 && index > -32768) {
+        indexInt = 2;
+    } 
+    std::cout << "indexInt: " << indexInt << "\n" << std::endl;
+    outputFile.write(reinterpret_cast<char*>(&indexInt), sizeof(indexInt));
+
+    for (const std::string& val : values) {
+        if (indexInt==1) {
+            int8_t index_int8 = static_cast<int8_t>(dictionary[val]);
+            // std::cout << "bitset:" << std::bitset<8>(index_int8) << "\n" << std::endl;
+            outputFile.write(reinterpret_cast<const char*>(&index_int8), sizeof(index_int8));
+            continue;
+        } else if (indexInt==2) {
+            int16_t index_int16 = static_cast<int16_t>(dictionary[val]);
+            outputFile.write(reinterpret_cast<char*>(&index_int16), sizeof(index_int16));
+            continue;
+        } 
+        outputFile.write(reinterpret_cast<char*>(&dictionary[val]), sizeof(dictionary[val]));
+    }
+    
+    outputFile.close();
 }
 
 
@@ -752,8 +903,12 @@ void decompress_dic_impl_binary_string(const std::string& inputFilePath, const s
     // 2. Read dictionary
     std::vector<std::string> dictionary(dictSize);
     for (int i = 0; i < dictSize; i++) {
+        // int valueSize;
+        // inputFile.read(reinterpret_cast<char*>(&valueSize), sizeof(valueSize));
+        // std::cout << "dictionary:size:" << valueSize << "\n" << std::endl;
         std::string value;
         inputFile.read(reinterpret_cast<char*>(&value), sizeof(value));
+        // std::cout << "dictionary: " << value << "\n" << std::endl;
         dictionary[i] = value;
     }
     decompress_write_file<std::string>(dictionary, inputFile, outputFile);
